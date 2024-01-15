@@ -1,7 +1,11 @@
 [package]
 name = "bitenum_macro"
+description = "bitenum macro"
 version = "0.2.0"
 edition = "2021"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/mixkorshun/bitenum"
+repository = "https://github.com/mixkorshun/bitenum"
 
 [lib]
 name = "bitenum_macro"
