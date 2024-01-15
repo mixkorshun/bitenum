@@ -9,3 +9,4 @@ repository = "https://github.com/mixkorshun/bitenum"
 edition = "2021"
 
 [dependencies]
+bitenum_macro = { version = "0.1.0", path = "../bitenum_macro" }

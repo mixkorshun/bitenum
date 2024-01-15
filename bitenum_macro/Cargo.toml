@@ -1,0 +1,15 @@
+[package]
+name = "bitenum_macro"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "bitenum_macro"
+proc-macro = true
+
+[dependencies]
+syn = { version = "2.0.48", features = ["full", "extra-traits"] }
+quote = { version = "1.0.35" }
+
+[dev-dependencies]
+bitenum = { path = "../bitenum" }

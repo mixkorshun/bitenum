@@ -1,20 +1,15 @@
-use bitenum::{BitEnum, BitEnumSet};
+use bitenum_macro::bitenum;
 
+#[bitenum(u32)]
 enum TestBitEnum {
-    A = 1 << 0,
-    B = 1 << 1,
-}
-
-impl Into<u32> for TestBitEnum {
-    fn into(self) -> u32 { self as u32 }
-}
-
-impl BitEnum for TestBitEnum {
-    type Scalar = u32;
+    A,
+    B,
 }
 
 #[test]
 fn test_mutable_ops() {
+    use bitenum::BitEnumSet;
+
     let mut set = BitEnumSet::new();
 
     assert_eq!(set.contains(TestBitEnum::A), false);
@@ -31,6 +26,8 @@ fn test_mutable_ops() {
 
 #[test]
 fn test_immutable_ops() {
+    use bitenum::BitEnumSet;
+
     let set = BitEnumSet::new();
 
     assert_eq!(set.contains(TestBitEnum::A), false);

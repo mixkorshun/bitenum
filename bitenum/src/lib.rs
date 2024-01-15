@@ -2,6 +2,8 @@
 
 use core::ops::{BitAnd, BitAndAssign, BitOr, BitOrAssign, Not};
 
+pub use bitenum_macro::bitenum;
+
 pub trait BitEnum: Into<Self::Scalar> {
     type Scalar: BitAnd<Output=Self::Scalar> + BitOr<Output=Self::Scalar> + Not<Output=Self::Scalar> + From<u8> + PartialEq + Copy;
 }

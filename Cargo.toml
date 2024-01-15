@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "bitenum",
+    "bitenum_macro",
 ]
 resolver = "2"
