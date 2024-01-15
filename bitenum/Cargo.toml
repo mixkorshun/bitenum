@@ -2,11 +2,11 @@
 name = "bitenum"
 description = "binary enums with bitflags support"
 keywords = ["enum", "bitflags", "no_std"]
-version = "0.2.1"
+version = "0.2.2"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/mixkorshun/bitenum"
 repository = "https://github.com/mixkorshun/bitenum"
 edition = "2021"
 
 [dependencies]
-bitenum_macro = { version = "0.2.0", path = "../bitenum_macro" }
+bitenum_macro = { version = "0.2.1", path = "../bitenum_macro" }
