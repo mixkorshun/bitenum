@@ -2,7 +2,7 @@
 name = "bitenum"
 description = "binary enums with bitflags support"
 keywords = ["enum", "bitflags", "no_std"]
-version = "0.2.0"
+version = "0.2.1"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/mixkorshun/bitenum"
 repository = "https://github.com/mixkorshun/bitenum"

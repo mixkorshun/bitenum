@@ -8,16 +8,16 @@ pub trait BitEnum: Into<Self::Scalar> {
     type Scalar: BitAnd<Output=Self::Scalar> + BitOr<Output=Self::Scalar> + Not<Output=Self::Scalar> + From<u8> + PartialEq + Copy;
 }
 
-pub struct BitEnumSet<UInt, Enum: BitEnum<Scalar=UInt>>(pub Enum::Scalar);
+pub struct BitEnumSet<Enum: BitEnum>(Enum::Scalar);
 
-impl<UInt, Enum> BitEnumSet<UInt, Enum>
-    where UInt: BitAnd<Output=UInt> + BitAndAssign + BitOr<Output=UInt> + BitOrAssign + Not<Output=UInt> + PartialEq + From<u8> + Copy,
-          Enum: BitEnum<Scalar=UInt> {
+impl<Scalar, Enum> BitEnumSet<Enum>
+    where Scalar: BitAnd<Output=Scalar> + BitAndAssign + BitOr<Output=Scalar> + BitOrAssign + Not<Output=Scalar> + PartialEq + From<u8> + Copy,
+          Enum: BitEnum<Scalar=Scalar> {
     #[inline]
-    pub fn new() -> Self { Self(UInt::from(0)) }
+    pub fn new() -> Self { Self(Enum::Scalar::from(0)) }
 
     pub fn contains(&self, value: Enum) -> bool {
-        return (self.0 & value.into()) != UInt::from(0);
+        return (self.0 & value.into()) != Scalar::from(0);
     }
 
     pub fn insert(&mut self, value: Enum) -> &Self {

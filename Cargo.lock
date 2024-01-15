@@ -4,14 +4,14 @@ version = 3
 
 [[package]]
 name = "bitenum"
-version = "0.1.0"
+version = "0.2.1"
 dependencies = [
  "bitenum_macro",
 ]
 
 [[package]]
 name = "bitenum_macro"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "bitenum",
  "quote",
