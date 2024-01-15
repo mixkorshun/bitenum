@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 
-use quote::quote;
+use quote::{quote, ToTokens};
 use syn::{Error, parse_quote};
 use syn::spanned::Spanned;
 
@@ -15,6 +15,10 @@ pub fn bitenum(attrs: TokenStream, body: TokenStream) -> TokenStream {
         Ok(item) => item,
         Err(err) => { return err.to_compile_error().into(); }
     };
+
+    enum_type.attrs.push(parse_quote! {
+        #[repr(#scalar_type)]
+    });
 
     let enum_name = enum_type.ident.clone();
 
@@ -37,7 +41,6 @@ pub fn bitenum(attrs: TokenStream, body: TokenStream) -> TokenStream {
     }
 
     TokenStream::from(quote! {
-        #[repr(#scalar_type)]
         #enum_type
 
         impl Into<#scalar_type> for #enum_name {
