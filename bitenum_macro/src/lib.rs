@@ -1,7 +1,7 @@
 use proc_macro::TokenStream;
 
 use quote::quote;
-use syn::{Error, Expr};
+use syn::{Error, parse_quote};
 use syn::spanned::Spanned;
 
 #[proc_macro_attribute]
@@ -31,7 +31,7 @@ pub fn bitenum(attrs: TokenStream, body: TokenStream) -> TokenStream {
         if variant.discriminant.is_none() {
             variant.discriminant = Some((
                 syn::token::Eq::default(),
-                syn::parse_str::<Expr>(format!("1 << {}", idx).as_str()).unwrap()
+                parse_quote! { 1 << #idx }
             ));
         }
     }
